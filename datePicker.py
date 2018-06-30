@@ -24,7 +24,7 @@ def home():
     deptDatetime = deptDatetime-timedelta(days=deptDatetime.weekday())
     deptDatetime = deptDatetime+timedelta(days=7)
     if request.method =='GET':
-        return render_template('Home.html')
+        return render_template('datePicker.html')
     else:
         time = request.form['DeptTime']
         day = int(request.form['DoW'])
@@ -35,6 +35,6 @@ def home():
         deptDatetime = deptDatetime + timedelta(minutes=int(time[-2:]))
         deptDatetime = deptDatetime - timedelta(hours=tzOffset)
         print(deptDatetime.timestamp())
-        return render_template('Home.html')
+        return render_template('datePicker.html')
 if __name__ == "__main__":
     app.run()
