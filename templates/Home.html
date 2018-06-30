@@ -3,26 +3,42 @@
 
 <head>
     <title>Page Title</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        var offset = new Date().getTimezoneOffset();
+
+    </script>
 </head>
 
 <body>
     <form method='post'>
         <tr>
             <td> <select id='DoW' name='DoW'>
-  <option value="Monday">Monday</option>
-  <option value="Tuesday">Tuesday</option>
-  <option value="Wednesday">Wednesday</option>
-  <option value="Thursday">Thursday</option>
-  <option value="Friday">Friday</option>
-  <option value="Saturday">Saturday</option>
-  <option value="Sunday">Sunday</option>
+  <option value=0>Monday</option>
+  <option value=1>Tuesday</option>
+  <option value=2>Wednesday</option>
+  <option value=3>Thursday</option>
+  <option value=4>Friday</option>
+  <option value=5>Saturday</option>
+  <option value=6>Sunday</option>
                </select></td>
             <td><input type="time" id='DeptTime' name='DeptTime' /></td>
             <td><input style="align-content: center" type="submit" id="submit" value="Submit" /> </td>
+
         </tr>
     </form>
 
+    <script>
+        axios({
+  method: 'post',
+  url: '/Home',
+  data: {
+    firstName: offset,
+   
+  }
+});
 
+    </script>
 </body>
 
 </html>
