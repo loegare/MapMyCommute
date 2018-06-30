@@ -1,1 +1,8 @@
+#GoogleMaps Api Key
 *.NDS
+
+#VSCode Files
+.vscode
+
+#Python Runtime Files
+__pycache__
