@@ -27,17 +27,14 @@ def home():
         return render_template('Home.html')
     else:
         time = request.form['DeptTime']
-        print(time)
-        day = request.form['DoW']
-        print(day)
-#        tzOffset = request.form['test']
-        data = request.get_json()
-        print(data)
-#        deptDatetime = deptDatetime + timedelta(days=day)
-#        deptDatetime = deptDatetime + timedelta(hours=time)
-#        print(tzOffset)
+        day = int(request.form['DoW'])
+        tzOffset = int(request.form['tz'])
+        
+        deptDatetime = deptDatetime + timedelta(days=day+1)
+        deptDatetime = deptDatetime + timedelta(hours=int(time[:1]))
+        deptDatetime = deptDatetime + timedelta(minutes=int(time[-2:]))
+        deptDatetime = deptDatetime - timedelta(hours=tzOffset)
+        print(deptDatetime.timestamp())
         return render_template('Home.html')
-    
-
 if __name__ == "__main__":
     app.run()
